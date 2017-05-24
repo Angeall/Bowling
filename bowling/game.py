@@ -19,13 +19,22 @@ class BowlingGame:
             players: A list containing the name of all the players taking part to this game.
         """
         self.players = players  # type: List[PLAYER_NAME]
-        self.scores = {player: 0 for player in self.players}  # type: Dict[PLAYER_NAME, PLAYER_SCORE]
-        self.frames = {player: [] for player in self.players}  # type: Dict[PLAYER_NAME, List[BowlingFrame]]
+        self.scores = {}  # type: Dict[PLAYER_NAME, PLAYER_SCORE]
+        self.frames = {}  # type: Dict[PLAYER_NAME, List[BowlingFrame]]
+        self.reset()
+
+    def reset(self):
+        """
+        Resets the value of this game in order to start a new one.
+        """
+        self.scores = {player: 0 for player in self.players}
+        self.frames = {player: [] for player in self.players}
 
     def play(self, predefined_actions: Optional[List[NUMBER_OF_PINS]]=None):
         """
         Launch the bowling game.
         """
+        self.reset()
         index = 0
         while len(self.frames[self.players[-1]]) != 10:
             for player in self.players:
@@ -48,6 +57,10 @@ class BowlingGame:
                     except PinsOverflowError as error:
                         print("\n/!\\ %s /!\\ \n" % str(error))
                         continue
+        if predefined_actions is None:
+            answer = input("Would you like to start a new game? (y/n)  ")
+            if answer.strip().lower() == 'y':
+                self.play()
 
     @staticmethod
     def computeScoreOnFrames(frames: List[BowlingFrame]) -> Union[PLAYER_SCORE, None]:
