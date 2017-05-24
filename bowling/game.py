@@ -34,7 +34,7 @@ class BowlingGame:
                 while not new_frame.isFinished:
                     try:
                         if predefined_actions is None or index >= len(predefined_actions):
-                            nb_pins = int(input("Please indicate the number of rows knocked down by %s: "
+                            nb_pins = int(input("Please indicate the number of pins knocked down by %s: "
                                                 % player))
                         else:
                             nb_pins = predefined_actions[index]
