@@ -176,7 +176,7 @@ class BowlingFrame:
                 throwing_3 = self._throwing[2] if len(self._throwing) >= 3 else ' '
                 if throwing_3 == 10:
                     throwing_3 = 'X'
-                elif throwing_2 != 'X' and throwing_3 != ' ' and (throwing_2 + throwing_3) == 10:
+                elif not isinstance(throwing_2, str) and throwing_3 != ' ' and (throwing_2 + throwing_3) == 10:
                     throwing_3 = '/'
                 throwing += '%s|' % throwing_3
             return throwing

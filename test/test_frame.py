@@ -315,5 +315,78 @@ class TestBowlingFrame(TestCase):
         frame = BowlingFrame("test")
         self.assertRaises(ValueError, frame.registerThrowing, -1)
 
+    def test_str_hole(self):
+        """
+        Checks if the string representation of the frame is correct for a hole
+        """
+        frame = BowlingFrame("test")
+        frame.registerThrowing(3)
+        frame.registerThrowing(4)
+        self.assertEqual(frame.__str__(), '| |3|4|')
+        self.assertEqual(frame.__str__(True), '| 7   |')
+
+    def test_str_hole_ending(self):
+        """
+        Checks if the string representation of the frame is correct for a hole
+        """
+        frame = BowlingFrame("test", ending=True)
+        frame.registerThrowing(3)
+        frame.registerThrowing(4)
+        self.assertEqual(frame.__str__(), '| |3|4| |')
+        self.assertEqual(frame.__str__(True), '| 7     |')
+
+    def test_str_spare(self):
+        """
+        Checks if the string representation of the frame is correct for a spare
+        """
+        frame = BowlingFrame("test")
+        frame.registerThrowing(3)
+        frame.registerThrowing(7)
+        self.assertEqual(frame.__str__(), '| |3|/|')
+        self.assertEqual(frame.__str__(True), '|     |')
+
+    def test_str_spare_ending(self):
+        """
+        Checks if the string representation of the ending frame is correct for a spare
+        """
+        frame = BowlingFrame("test", ending=True)
+        frame.registerThrowing(5)
+        frame.registerThrowing(5)
+        frame.registerThrowing(6)
+        self.assertEqual(frame.__str__(), '| |5|/|6|')
+        self.assertEqual(frame.__str__(True), '| 16    |')
+
+    def test_str_spare_ending2(self):
+        """
+        Checks if the string representation of the ending frame is correct for a spare
+        """
+        frame = BowlingFrame("test", ending=True)
+        frame.registerThrowing(10)
+        frame.registerThrowing(5)
+        frame.registerThrowing(5)
+        self.assertEqual(frame.__str__(), '| |X|5|/|')
+        self.assertEqual(frame.__str__(True), '| 20    |')
+
+    def test_str_strike(self):
+        """
+        Checks if the string representation of the frame is correct for a strike
+        """
+        frame = BowlingFrame("test")
+        frame.registerThrowing(10)
+        self.assertEqual(frame.__str__(), '| | |X|')
+        self.assertEqual(frame.__str__(True), '|     |')
+
+    def test_str_strike_ending(self):
+        """
+        Checks if the string representation of the ending frame is correct for a strike
+        """
+        frame = BowlingFrame("test", ending=True)
+        frame.registerThrowing(10)
+        frame.registerThrowing(10)
+        frame.registerThrowing(10)
+        self.assertEqual(frame.__str__(), '| |X|X|X|')
+        self.assertEqual(frame.__str__(True), '| 30    |')
+
+
 
 

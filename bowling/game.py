@@ -1,4 +1,4 @@
-from typing import List, Dict, Union
+from typing import List, Dict, Union, Optional
 
 from .const import NUMBER_OF_PINS, PLAYER_NAME, PLAYER_SCORE
 from .frame import BowlingFrame, PinsOverflowError
@@ -22,18 +22,23 @@ class BowlingGame:
         self.scores = {player: 0 for player in self.players}  # type: Dict[PLAYER_NAME, PLAYER_SCORE]
         self.frames = {player: [] for player in self.players}  # type: Dict[PLAYER_NAME, List[BowlingFrame]]
 
-    def play(self):
+    def play(self, predefined_actions: Optional[List[NUMBER_OF_PINS]]=None):
         """
         Launch the bowling game.
         """
+        index = 0
         while len(self.frames[self.players[-1]]) != 10:
             for player in self.players:
                 new_frame = BowlingFrame(player, ending=len(self.frames[player]) == 9)
                 self.frames[player].append(new_frame)
                 while not new_frame.isFinished:
                     try:
-                        nb_pins = int(input("Please indicate the number of rows knocked down by %s: "
-                                            % player))
+                        if predefined_actions is None or index >= len(predefined_actions):
+                            nb_pins = int(input("Please indicate the number of rows knocked down by %s: "
+                                                % player))
+                        else:
+                            nb_pins = predefined_actions[index]
+                            index += 1
                         new_frame.registerThrowing(nb_pins)
                         self._informPreviousFrames(self.frames[player])
                         print(self)
