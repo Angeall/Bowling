@@ -5,6 +5,4 @@ install:
   - "pip install coveralls coverage"
 after_success:
   - coveralls
-script:
-  - pytest
-  - "coverage run --source bowling -m pytest"
+script: "coverage run --source bowling -m pytest"
