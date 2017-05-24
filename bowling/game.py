@@ -30,7 +30,7 @@ class BowlingGame:
         self.scores = {player: 0 for player in self.players}
         self.frames = {player: [] for player in self.players}
 
-    def play(self, predefined_actions: Optional[List[NUMBER_OF_PINS]]=None):
+    def play(self, predefined_actions: Optional[List[NUMBER_OF_PINS]]=None, verbose: bool=True):
         """
         Launch the bowling game.
         """
@@ -50,7 +50,8 @@ class BowlingGame:
                             index += 1
                         new_frame.registerThrowing(nb_pins)
                         self._informPreviousFrames(self.frames[player])
-                        print(self)
+                        if verbose:
+                            print(self)
                     except ValueError:
                         print("Incorrect value")
                         continue
