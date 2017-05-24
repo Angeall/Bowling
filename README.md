@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Angeall/Bowling.svg?branch=master)](https://travis-ci.org/Angeall/Bowling)
+
 # Bowling Simulator
 This project simulates bowling games, allowing the user to compute bowling scores.
 
