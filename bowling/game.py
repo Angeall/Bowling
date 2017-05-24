@@ -18,7 +18,13 @@ class BowlingGame:
         Args:
             players: A list containing the name of all the players taking part to this game.
         """
-        self.players = players  # type: List[PLAYER_NAME]
+        players_without_duplicates = []
+        for player in players:
+            if player in players_without_duplicates:
+                players_without_duplicates.append(player + "_2")
+            else:
+                players_without_duplicates.append(player)
+        self.players = players_without_duplicates  # type: List[PLAYER_NAME]
         self.scores = {}  # type: Dict[PLAYER_NAME, PLAYER_SCORE]
         self.frames = {}  # type: Dict[PLAYER_NAME, List[BowlingFrame]]
         self.reset()
