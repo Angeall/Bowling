@@ -7,14 +7,14 @@ __author__ = 'Anthony Rouneau'
 
 class BowlingFrame:
     """
-    Class defining a bowling frame for one player. 
+    Class defining a bowling frame for one player.
     There are 10 frames per player in a bowling game.
     """
 
     def __init__(self, player: PLAYER_NAME, ending: bool = False):
         """
         Creates a new Bowling frame for the given player.
-        
+
         Args:
             player: The name of the player taking part in this frame.
             ending: Boolean indicating whether this frame is the final frame in the game.
@@ -150,7 +150,7 @@ class BowlingFrame:
         The second call with score  = True, which will display the score of this frame if it is defined.
         
         Args:
-            score: Boolean indicating whether the score only, or the throwing only must be displayed. 
+            score: Boolean indicating whether the score only, or the throwing only must be displayed.
 
         Returns: A string that represents this frame
         """

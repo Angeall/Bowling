@@ -1,4 +1,4 @@
-from typing import List, Dict, Optional, Union
+from typing import List, Dict, Union
 
 from .const import NUMBER_OF_PINS, PLAYER_NAME, PLAYER_SCORE
 from .frame import BowlingFrame, PinsOverflowError
@@ -14,9 +14,9 @@ class BowlingGame:
     def __init__(self, players: List[PLAYER_NAME]):
         """
         Creates a new Bowling game.
-        
+
         Args:
-            players: A list containing the name of all the players taking part to this game.  
+            players: A list containing the name of all the players taking part to this game.
         """
         self.players = players  # type: List[PLAYER_NAME]
         self.scores = {player: 0 for player in self.players}  # type: Dict[PLAYER_NAME, PLAYER_SCORE]
@@ -45,7 +45,7 @@ class BowlingGame:
                         continue
 
     @staticmethod
-    def computeScoreOnFrames(frames: List[BowlingFrame]) -> int:
+    def computeScoreOnFrames(frames: List[BowlingFrame]) -> Union[PLAYER_SCORE, None]:
         """
         Computes the score of finished bowling frames
         
@@ -65,15 +65,15 @@ class BowlingGame:
         return frames[-1].getScore()
 
     @staticmethod
-    def computeScore(throwing_list: List[NUMBER_OF_PINS]) -> Union[int, None]:
+    def computeScore(throwing_list: List[NUMBER_OF_PINS]) -> Union[PLAYER_SCORE, None]:
         """
         Computes the score of a Bowling game, given the number of pins that the player knocked down at each throwing.
-        Limits itself at 10 frames. The given list of throwing must contain enough throwing to complete 
+        Limits itself at 10 frames. The given list of throwing must contain enough throwing to complete
         a certain number (in [0, 10]) of frames. If the throwing leave a frame uncompleted, the method
         will raise an error.
         
         Args:
-            throwing_list: 
+            throwing_list:
                 The list containing the number of pins knocked down at each throwing if it is defined.
                 If the score can not be defined yet, return None
              

@@ -6,7 +6,7 @@ from bowling.frame import BowlingFrame, PinsOverflowError
 class TestBowlingFrame(TestCase):
     def test_number_pins(self):
         """
-        Checks if the number of knocked down pins is returned correctly 
+        Checks if the number of knocked down pins is returned correctly
         """
         frame = BowlingFrame("test")
         self.assertEqual(frame.getNbOfKnockedDownPins(), 0)
@@ -209,7 +209,7 @@ class TestBowlingFrame(TestCase):
 
     def test_previous_score_hole(self):
         """
-        Tests that the score of a frame is updated directly after the hole is finished, taking into account the 
+        Tests that the score of a frame is updated directly after the hole is finished, taking into account the
         previous score
         """
         frame = BowlingFrame("test")
