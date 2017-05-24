@@ -1,0 +1,3 @@
+PLAYER_NAME = str
+PLAYER_SCORE = int
+NUMBER_OF_PINS = int

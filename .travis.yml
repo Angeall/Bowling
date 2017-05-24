@@ -1,0 +1,8 @@
+language: python
+python:
+  - "3.6"
+install:
+  - "pip install coveralls coverage"
+after_success:
+  - coveralls
+script: "coverage run --source bowling -m pytest"
