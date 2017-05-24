@@ -168,7 +168,7 @@ class TestBowlingGame(TestCase):
         Tests if the play build up correctly
         """
         game = BowlingGame(['test'])
-        game.play([2, 3, 6, 4, 8, 1, 10, 3, 0, 10, 10, 10, 10, 1, 9, 5])
+        game.play([2, 3, 6, 4, 8, 1, 10, 3, 0, 10, 10, 10, 10, 1, 9, 5], verbose=False)
         self.assertEqual(len(game.frames['test']), 10)
         self.assertEqual(BowlingGame.computeScoreOnFrames(game.frames['test']), 164)
 
