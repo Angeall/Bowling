@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6adf93bec91a4ce9ae80b0d61b4052c7)](https://www.codacy.com/app/angeal1105/Bowling?utm_source=github.com&utm_medium=referral&utm_content=Angeall/Bowling&utm_campaign=badger)
 [![Build Status](https://travis-ci.org/Angeall/Bowling.svg?branch=master)](https://travis-ci.org/Angeall/Bowling)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6adf93bec91a4ce9ae80b0d61b4052c7)](https://www.codacy.com/app/angeal1105/Bowling?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Angeall/Bowling&amp;utm_campaign=Badge_Grade)
 [![Coverage Status](https://coveralls.io/repos/github/Angeall/Bowling/badge.png?branch=master)](https://coveralls.io/github/Angeall/Bowling?branch=master)
